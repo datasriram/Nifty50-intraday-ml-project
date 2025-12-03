@@ -77,7 +77,7 @@ XGBoost	0.5031
 It behaved more consistently on noisy intraday data, while tree-based models fluctuated more.
 I selected Logistic Regression for generating final Buy/Sell signals and PnL.
 
-**note**
+**Note**
 Even though Logistic Regression was only slightly better than the other models, this small improvement is meaningful because intraday price movement is extremely noisy and hard to predict. In high-frequency scenarios, even small gains in classification stability are valuable. I think the accuracy values in this project are also normal for 1-minute data, so the results are realistic and expected.
 
 
