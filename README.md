@@ -18,13 +18,14 @@ Predictions were converted to:
 ## 2. Setup Instructions
 
 pip install pandas numpy scikit-learn xgboost matplotlib
-I used Google Colab for execution 
+
+I used **Google Colab** for execution 
 
  ## 3. Feature Engineering
 
 I created the following features:
 
-## a.Basic Features
+ **a.Basic Features**
 
 range (high − low)
 
@@ -46,13 +47,13 @@ Direction Flag
 
 dir_1 (previous return > 0)
 
-## b.Technical Indicator
+**b.Technical Indicator**
 
-RSI (14-period)
+**RSI** (14-period)
 
 Removed Features
 
-I experimented with MACD & MACD histogram, but removed them because they introduced noise and hurt model stability.
+I experimented with **MACD**, but removed them because they introduced noise and hurt model stability.
 
 ## 4. Models Trained
 
@@ -72,21 +73,24 @@ XGBoost	0.5031
 
 ## 6. Best Model 
 
-## Logistic Regression performed the best, achieving the highest accuracy.
+**Logistic Regression performed the best, achieving the highest accuracy.**
 It behaved more consistently on noisy intraday data, while tree-based models fluctuated more.
 I selected Logistic Regression for generating final Buy/Sell signals and PnL.
+
+**note**
+Even though Logistic Regression was only slightly better than the other models, this small improvement is meaningful because intraday price movement is extremely noisy and hard to predict. In high-frequency scenarios, even small gains in classification stability are valuable. I think the accuracy values in this project are also normal for 1-minute data, so the results are realistic and expected.
+
 
 ## 7. Buy/Sell Signals & PnL
 BUY  = 34,801  
 SELL = 28,965
 
 
-## Because BUY subtracts the close price, more BUYs result in a negative PnL.
+**Because BUY subtracts the close price, more BUYs result in a negative PnL.**
 
 Final Cumulative PnL:
 
 -143,026,430.45
-
 
 (This is fine due to the assignment's PnL logic.)
 
@@ -107,6 +111,6 @@ Cumulative PnL
 ## 9. Conclusion
 
 I built the full ML workflow: preprocessing, target labeling, feature engineering, model comparison, Buy/Sell conversion, and PnL calculation.
-Logistic Regression performed best and was used as the final model.
+**Logistic Regression** performed best and was used as the final model.
 
-All assignment requirements were completed successfully.
+All assignment requirements are completed successfully.
