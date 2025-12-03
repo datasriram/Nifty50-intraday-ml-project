@@ -2,36 +2,29 @@
 Machine Learning project for predicting next-minute NIFTY50 price direction using intraday OHLCV data. Includes preprocessing, feature engineering, multiple ML models (Logistic Regression, Random Forest, XGBoost), Buy/Sell signal generation, and PnL computation based on assignment rules.
  
 
-1. Project Overview
+## 1. Project Overview
 
-I created a binary target using next-minute close price movement:
+I used 1-minute data to build a binary classifier:
 
-1 → price goes up next minute
-
-0 → price stays same or goes down
+- **1 → next candle close higher**  
+- **0 → next candle close lower/same**
 
 Predictions were converted to:
 
-BUY → subtract close
+- **BUY → subtract close**  
+- **SELL → add close**
 
-SELL → add close
 
-as required by the assignment.
-
-2. Setup Instructions
-
-Install required libraries:
+## 2. Setup Instructions
 
 pip install pandas numpy scikit-learn xgboost matplotlib
+I used Google Colab for execution 
 
-
-I ran the notebook in Google Colab.
-
-3. Feature Engineering
+ ## 3. Feature Engineering
 
 I created the following features:
 
-Basic Features
+## a.Basic Features
 
 range (high − low)
 
@@ -53,7 +46,7 @@ Direction Flag
 
 dir_1 (previous return > 0)
 
-Technical Indicator
+## b.Technical Indicator
 
 RSI (14-period)
 
@@ -61,7 +54,7 @@ Removed Features
 
 I experimented with MACD & MACD histogram, but removed them because they introduced noise and hurt model stability.
 
-4. Models Trained
+## 4. Models Trained
 
 Logistic Regression (with StandardScaler)
 
@@ -71,32 +64,33 @@ XGBoost
 
 Evaluated using accuracy, precision, recall.
 
-5. Model Performance
+## 5. Model Performance
 Model	Accuracy
 Logistic Regression	0.5090
 Random Forest	0.5055
 XGBoost	0.5031
-6. Best Model (2–4 Line Justification)
 
-Logistic Regression performed the best, achieving the highest accuracy, precision, and recall.
+## 6. Best Model 
+
+## Logistic Regression performed the best, achieving the highest accuracy.
 It behaved more consistently on noisy intraday data, while tree-based models fluctuated more.
 I selected Logistic Regression for generating final Buy/Sell signals and PnL.
 
-7. Buy/Sell Signals & PnL
+## 7. Buy/Sell Signals & PnL
 BUY  = 34,801  
 SELL = 28,965
 
 
-Because BUY subtracts the close price, more BUYs result in a negative PnL.
+## Because BUY subtracts the close price, more BUYs result in a negative PnL.
 
 Final Cumulative PnL:
 
 -143,026,430.45
 
 
-(This is expected due to the assignment's PnL logic.)
+(This is fine due to the assignment's PnL logic.)
 
-8. Output Table Includes
+## 8. Output Table Includes
 
 Timestamp
 
@@ -110,8 +104,9 @@ PnL Step
 
 Cumulative PnL
 
-9. Conclusion
+## 9. Conclusion
 
 I built the full ML workflow: preprocessing, target labeling, feature engineering, model comparison, Buy/Sell conversion, and PnL calculation.
 Logistic Regression performed best and was used as the final model.
+
 All assignment requirements were completed successfully.
