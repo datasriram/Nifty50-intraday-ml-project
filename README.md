@@ -67,9 +67,9 @@ Evaluated using accuracy, precision, recall.
 
 ## 5. Model Performance
 Model	Accuracy
-Logistic Regression	0.5090
-Random Forest	0.5055
-XGBoost	0.5031
+Logistic Regression	0.5087
+Random Forest	0.5058
+XGBoost	0.5033
 
 ## 6. Best Model 
 
@@ -82,15 +82,15 @@ Even though Logistic Regression was only slightly better than the other models, 
 
 
 ## 7. Buy/Sell Signals & PnL
-BUY  = 34,801  
-SELL = 28,965
+BUY  = 34,980  
+SELL = 28,809
 
 
 **Because BUY subtracts the close price, more BUYs result in a negative PnL.**
 
 Final Cumulative PnL:
 
--143,026,430.45
+-151,193,834.45
 
 (This is fine due to the assignment's PnL logic.)
 
